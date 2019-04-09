@@ -1,0 +1,18 @@
+{
+  "name": "open-prs",
+  "version": "1.0.0",
+  "description": "command line tool to list open pull requests by users",
+  "main": "index.js",
+  "author": "ekeyur",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "figlet": "^1.2.1",
+    "node-fetch": "^2.3.0"
+  },
+  "bin": {
+    "pr": "./index.js"
+  }
+}
