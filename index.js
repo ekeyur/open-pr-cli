@@ -35,8 +35,8 @@ const getPRs = (urls) => {
   return Promise.all(urls)
     .then(users_prs => {
       users_prs.map(prs => {
-        printUserPrs(prs)
         spinner.stop();
+        printUserPrs(prs)
       })
     })
     .catch(err => {
