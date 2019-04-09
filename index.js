@@ -7,7 +7,7 @@ const CLI         = require('clui');
 const Spinner     = CLI.Spinner;
 const args = process.argv
 
-const { errorLog, usage, fetchPrRequests } = require('./lib/utils');
+const { errorLog, usage, fetchPrRequests, printUserPrs } = require('./lib/utils');
 
 // clear the console and print the heading
 clear();
@@ -35,13 +35,8 @@ const getPRs = (urls) => {
   return Promise.all(urls)
     .then(users_prs => {
       users_prs.map(prs => {
+        printUserPrs(prs)
         spinner.stop();
-        
-        if(prs.items[0]) console.log(`\r\n${prs.items[0] && prs.items[0].user.login}'s pull requests`)
-        prs.items.map((pr,index) => {
-          const tempArr = pr.repository_url.split('/');
-          console.log(index+1 + ': '+pr.title, ' | '+ tempArr[tempArr.length-1]);
-        })
       })
     })
     .catch(err => {
