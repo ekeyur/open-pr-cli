@@ -29,7 +29,7 @@ const spinner = new Spinner('Making a request, please wait...');
 // Create an array of requests 
 const prRequests = fetchPrRequests(args.slice(3));
 
-
+//Async call to the github api
 const getPRs = (urls) => {
   spinner.start();
   return Promise.all(urls)
