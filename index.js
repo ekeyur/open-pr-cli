@@ -36,8 +36,12 @@ const getPRs = (urls) => {
     .then(users_prs => {
       users_prs.map(prs => {
         spinner.stop();
+        
         if(prs.items[0]) console.log(`\r\n${prs.items[0] && prs.items[0].user.login}'s pull requests`)
-        prs.items.map((pr,index) => console.log(index+1 + ': '+pr.title))
+        prs.items.map((pr,index) => {
+          const tempArr = pr.repository_url.split('/');
+          console.log(index+1 + ': '+pr.title, ' | '+ tempArr[tempArr.length-1]);
+        })
       })
     })
     .catch(err => {
